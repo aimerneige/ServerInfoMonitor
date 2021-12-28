@@ -8,6 +8,8 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
+from . import titlebar
+
 window_title = "Server Info Monitor"
 window_width = 300
 window_height = 200
@@ -28,22 +30,21 @@ class Window(QMainWindow):
         self.setFixedWidth(window_width)
         self.setFixedHeight(window_height)
         self.setWindowOpacity(window_opacity)
+        self.setStyleSheet("background-color: #000000;")
         self.setWindowFlag(Qt.FramelessWindowHint)
 
     def initUI(self) -> None:
         """
         Init UI widgets and layout.
         """
-        self.initHelloWorldLabel()
+        self.initTitleBar()
 
-    def initHelloWorldLabel(self) -> None:
+    def initTitleBar(self) -> None:
         """
-        Init the Hello World label.
+        Init the title bar.
         """
-        self.label = QLabel("Hello World", self)
-        self.label.setAlignment(Qt.AlignCenter)
-        self.label.setGeometry(0, 0, window_width, window_height)
-        self.label.setStyleSheet("background-color: #000000; color: #ffffff;")
+        self.titlebar = titlebar.TitleBar(self, window_title)
+        self.titlebar.setGeometry(0, 0, window_width, 20)
 
     def center(self) -> None:
         """
