@@ -8,10 +8,10 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
-_title = "Server Info Monitor"
-_width = 300
-_height = 200
-_opacity = 0.3
+window_title = "Server Info Monitor"
+window_width = 300
+window_height = 200
+window_opacity = 0.3
 
 class Window(QMainWindow):
     def __init__(self) -> None:
@@ -24,10 +24,10 @@ class Window(QMainWindow):
         """
         Init window properties.
         """
-        self.setWindowTitle(_title)
-        self.setFixedWidth(_width)
-        self.setFixedHeight(_height)
-        self.setWindowOpacity(_opacity)
+        self.setWindowTitle(window_title)
+        self.setFixedWidth(window_width)
+        self.setFixedHeight(window_height)
+        self.setWindowOpacity(window_opacity)
         self.setWindowFlag(Qt.FramelessWindowHint)
 
     def initUI(self) -> None:
@@ -42,7 +42,7 @@ class Window(QMainWindow):
         """
         self.label = QLabel("Hello World", self)
         self.label.setAlignment(Qt.AlignCenter)
-        self.label.setGeometry(0, 0, 300, 200)
+        self.label.setGeometry(0, 0, window_width, window_height)
         self.label.setStyleSheet("background-color: #000000; color: #ffffff;")
 
     def center(self) -> None:
