@@ -8,7 +8,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
-from . import titlebar
+from .titlebar import TitleBar
 
 window_title = "Server Info Monitor"
 window_width = 300
@@ -43,7 +43,7 @@ class Window(QMainWindow):
         """
         Init the title bar.
         """
-        self.titlebar = titlebar.TitleBar(self, window_title)
+        self.titlebar = TitleBar(self, window_title)
         self.titlebar.setGeometry(0, 0, window_width, 20)
 
     def center(self) -> None:
