@@ -8,6 +8,16 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
+widget_height = 20
+
+margin_left = 1
+margin_right = 1
+margin_top = 1
+margin_button = 1
+
+close_button_width = 20
+close_button_height = 20
+
 class TitleBar(QWidget):
     def __init__(self, parent: QWidget, title: str) -> None:
         super().__init__(parent)
@@ -18,7 +28,7 @@ class TitleBar(QWidget):
         """
         Init UI widgets and layout.
         """
-        self.setFixedHeight(20)
+        self.setFixedHeight(widget_height)
         self.setStyleSheet("color: #ffffff;")
 
         self.initTitleLabel()
@@ -26,7 +36,7 @@ class TitleBar(QWidget):
 
         hbox = QHBoxLayout(self)
         hbox.setSpacing(0)
-        hbox.setContentsMargins(1, 1, 1, 1)
+        hbox.setContentsMargins(margin_left, margin_top, margin_right, margin_button)
         hbox.addWidget(self.label)
         hbox.addStretch(1)
         hbox.addWidget(self.closeButton)
@@ -39,7 +49,7 @@ class TitleBar(QWidget):
 
     def initCloseButton(self) -> None:
         self.closeButton = QPushButton("X", self)
-        self.closeButton.setFixedSize(20, 20)
+        self.closeButton.setFixedSize(close_button_width, close_button_height)
         self.closeButton.clicked.connect(self.closeButtonClicked)
 
     @pyqtSlot()
